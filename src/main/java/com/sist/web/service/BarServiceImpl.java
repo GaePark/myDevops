@@ -23,11 +23,19 @@ public class BarServiceImpl implements BarService {
 		int count =(int) bDao.count();
 		int totalpage= (int)(Math.ceil(count/rowSize));
 		
+		final int BLOCK = 10;
+		int startPage = ((page-1)/BLOCK*BLOCK)+1;
+		int endPage = ((page-1)/BLOCK*BLOCK)+10;
+		if(endPage>totalpage)
+			endPage=totalpage;
+		
 		List<BarVO> list =  bDao.barListData(start, end);
 		
 		map.put("list", list);
 		map.put("totalpage", totalpage);
-		
+		map.put("startPage",startPage);
+		map.put("endPage", endPage);
+		map.put("curpage", page);
 		
 		return map;
 	}
