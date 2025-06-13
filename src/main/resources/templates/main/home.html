@@ -21,14 +21,14 @@
 	  	<nav aria-label="Page navigation example">
 			<ul class="pagination">
 			  <li th:if="${map.startPage>1}" class="page-item">
-			    <a class="page-link" th:href="@{/(page=map.startPage-1)}" aria-label="Previous">
+			    <a class="page-link" th:href="@{/(page=${map.startPage-1})}" aria-label="Previous">
 			      <span aria-hidden="true">&laquo;</span>
 			    </a>
 			  </li>
 			  <li th:class="${map.curpage==i}?'active':''" th:each="i:${#numbers.sequence(map.startPage,map.endPage)}" class="page-item"><a class="page-link" th:href="@{/(page=${i})}" th:text="${i}"></a></li>
 			  
 			  <li th:if="${map.endPage<map.totalpage}" class="page-item">
-			    <a class="page-link" th:href="@{/(page=()map.endPage+1)}" aria-label="Next">
+			    <a class="page-link" th:href="@{/(page=${map.endPage+1})}" aria-label="Next">
 			      <span aria-hidden="true">&raquo;</span>
 			    </a>
 			  </li>
