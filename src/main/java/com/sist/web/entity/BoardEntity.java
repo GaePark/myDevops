@@ -28,7 +28,7 @@ import lombok.Data;
 		REGDATE          DATE           
 		HIT              NUMBER
  */
-@Entity(name="board")
+@Entity(name="pjhboard")
 @Data
 @DynamicUpdate
 public class BoardEntity {

@@ -18,7 +18,7 @@ public interface BoardRepository extends JpaRepository<BoardEntity, Integer>{
 		 +"TO_CHAR(regdate,'YYYY-MM-DD') as dbday,hit,num "
 		 +"FROM (SELECT no,name,subject,content,regdate,hit,rownum as num "
 		 +"FROM (SELECT no,name,subject,content,regdate,hit "
-		 +"FROM board ORDER BY no DESC)) "
+		 +"FROM pjhboard ORDER BY no DESC)) "
 		 +"WHERE num BETWEEN :start AND :end",nativeQuery = true)
    public List<BoardVO> boardListData(@Param("start") int start,@Param("end") int end);
    
